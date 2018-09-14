@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Course {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     Long courseId;
 
     @Column()

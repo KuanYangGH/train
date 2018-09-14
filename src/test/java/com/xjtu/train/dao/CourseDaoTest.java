@@ -31,8 +31,11 @@ public class CourseDaoTest {
     @Test
     public void findCourses() {
         List<Course> results = courseDao.findCourses();
-        logger.debug(results.toString());
-        Assert.assertEquals(2,results.size());
+        logger.info(results.toString());
+        if(results.size()!=3){
+            logger.error("shujuku");
+        }
+        Assert.assertEquals(1,results.size());
     }
 
     @Test
@@ -41,6 +44,14 @@ public class CourseDaoTest {
         Course result = courseDao.findCourseById(courseId);
         //logger.info(result.toString());
         Assert.assertNotNull(result);
-        Assert.assertEquals(null,result);
+        Assert.assertEquals("编译原理",result.getName());
+    }
+
+    @Test
+    public void saveCourse1() {
+    }
+
+    @Test
+    public void findCourseById1() {
     }
 }

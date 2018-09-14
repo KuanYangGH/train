@@ -12,4 +12,12 @@ public interface CourseRepository extends JpaRepository<Course,Long> {
      */
     Course findByCourseId(Long courseId);
 
+    /**
+     * select Course from course where Name = name
+     * @param name
+     * @return
+     */
+    Course findByName(String name);
+
+
 }

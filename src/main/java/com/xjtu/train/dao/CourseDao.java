@@ -1,8 +1,10 @@
 package com.xjtu.train.dao;
 
+
 import com.xjtu.train.domain.Course;
 import com.xjtu.train.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

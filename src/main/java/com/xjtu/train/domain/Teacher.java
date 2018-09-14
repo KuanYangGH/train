@@ -6,9 +6,10 @@ import javax.persistence.Id;
 
 /**
  * 教师实体类
- * @author yangkuan
+ * @author Lynn
  * @date 2018/09/13
  */
+
 @Entity
 public class Teacher {
 

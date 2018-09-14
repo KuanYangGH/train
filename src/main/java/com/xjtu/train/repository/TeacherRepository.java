@@ -7,14 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface TeacherRepository extends JpaRepository<Teacher,Long> {
-
+public interface TeacherRepository extends JpaRepository <Teacher,Long>{
     /**
-     * 根据年龄，查询教师
+     * 根据年龄查询教师
+     *
      * @param age 年龄
      * @return
      */
-    List<Teacher> findByAge(Integer age);
+    List<Teacher> findByAge(int age);
 
     /**
      *
@@ -22,12 +22,11 @@ public interface TeacherRepository extends JpaRepository<Teacher,Long> {
      * @param old
      * @return
      */
-    @Query(value = "select t from Teacher t " +
-            "where t.age>=?1 and t.age<=?2")
+    @Query("SELECT t FROM Teacher t "+
+            "WHERE t.age>?1 and t.age<=?2")
     List<Teacher> findByAges(Integer young,Integer old);
 
-    @Query(value = "select c from Teacher t,Course c " +
-            "where t.teacherId=?1 and t.name=c.teacherName")
+    @Query("select c from Teacher t,Course c where t.teacherId=?1 and t.name=c.teacherName")
     List<Course> findCoursesByTeacherId(Long teacherId);
 
 }
