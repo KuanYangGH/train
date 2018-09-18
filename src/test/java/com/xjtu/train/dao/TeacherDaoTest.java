@@ -34,7 +34,7 @@ public class TeacherDaoTest {
     public void findByTeacherAge(){
         int age1 = 44;
         List<Teacher> result1 = teacherDao.findByTeacherAge(age1);
-        Assert.assertEquals(1,result1.size());
+        Assert.assertEquals(3,result1.size());
     }
     @Test
     public void findAmongTeacherAges(){

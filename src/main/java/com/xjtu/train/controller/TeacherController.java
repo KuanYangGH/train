@@ -1,8 +1,11 @@
 package com.xjtu.train.controller;
 
 
+import com.xjtu.train.dao.CourseDao;
 import com.xjtu.train.dao.TeacherDao;
 import com.xjtu.train.domain.Teacher;
+import com.xjtu.train.domain.Course;
+import com.xjtu.train.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +29,16 @@ public class TeacherController {
         teachers.add(new Teacher(name,age,major));
         return teacherDao.save(teachers);
     }
-//
-//    public List<Teacher> findByTeacherAge(int age){
-//
-//    }
+    @GetMapping("/findByTeacherAge")
+    public List<Teacher> findByTeacherAge(@RequestParam("age")int age){
+        return teacherDao.findByTeacherAge(age);
+    }
+    @GetMapping("/findAmongTeacherAges")
+    public List<Teacher> findAmongTeacherAges(@RequestParam("young")int young,@RequestParam("old")int old){
+        return teacherDao.findAmongTeacherAges(young, old);
+    }
+    @GetMapping("/findCourseByTeacherId")
+    public List<Course> findCourseByTeacherId(@RequestParam("teacherId")long teacherId){
+        return teacherDao.findCourseByTeacherId(teacherId);
+    }
 }
